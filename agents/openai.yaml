@@ -1,0 +1,4 @@
+interface:
+  display_name: "错题笔记与 Anki 卡片生成"
+  short_description: "把有来源的代码错误、修复对比与源码学习材料整理成 Markdown 和 Anki 复习卡"
+  default_prompt: "使用 $code-sandbox-anki-generator 整理我提供的报错和代码，生成带 Mermaid 与复习卡的 Markdown，并标明未验证的信息。"

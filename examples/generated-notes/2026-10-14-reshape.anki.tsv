@@ -1,0 +1,7 @@
+#separator:tab
+#html:true
+#columns:Front	Back	Tags
+#tags column:3
+张量 reshape 前后必须保持哪个量不变？	元素总数。	pytorch reshape simulated
+10 个元素能否 reshape 为 (2,3)？为什么？	不能。目标形状只有 2×3=6 个位置，与 10 个元素不一致。	pytorch shape simulated
+10 个元素 reshape 为 (2,-1) 时，推导出的第二维是多少？	5，因为 10÷2=5。	pytorch shape simulated

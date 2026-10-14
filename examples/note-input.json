@@ -1,0 +1,22 @@
+{
+  "title": "模拟笔记：reshape 元素总数不匹配",
+  "date": "2026-10-14",
+  "topic": "pytorch",
+  "sources": ["完全虚构的教学示例；不代表用户今天的代码或报错"],
+  "context": "模拟场景：10 个元素被重塑为只有 6 个位置的张量。",
+  "error": "模拟预期异常，未实际执行：RuntimeError: shape '[2, 3]' is invalid for input of size 10",
+  "before": "x = torch.arange(10)\ny = x.reshape(2, 3)",
+  "after": "x = torch.arange(10)\ny = x.reshape(2, 5)",
+  "cause": "依据示例代码可知输入有 10 个元素，而 2×3=6；reshape 要求重塑前后元素总数一致。",
+  "verification": "未执行 PyTorch。仅核对元素总数：2×5=10；不能据此宣称真实环境已修复。",
+  "takeaways": ["reshape 前后元素总数必须一致。", "可用一个 -1 维度推导形状，但其余维度应与元素总数兼容。", "reshape 不保证返回结果总是与原张量共享存储。"],
+  "flow": {
+    "nodes": [{"id": "A", "label": "输入：10 个元素（模拟）"}, {"id": "B", "label": "目标 (2,3)：需要 6 个"}, {"id": "C", "label": "元素总数不匹配"}, {"id": "D", "label": "改为 (2,5)：需要 10 个"}, {"id": "E", "label": "实际运行验证待执行"}],
+    "edges": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "E"]]
+  },
+  "cards": [
+    {"front": "张量 reshape 前后必须保持哪个量不变？", "back": "元素总数。", "tags": ["pytorch", "reshape", "simulated"]},
+    {"front": "10 个元素能否 reshape 为 (2,3)？为什么？", "back": "不能。目标形状只有 2×3=6 个位置，与 10 个元素不一致。", "tags": ["pytorch", "shape", "simulated"]},
+    {"front": "10 个元素 reshape 为 (2,-1) 时，推导出的第二维是多少？", "back": "5，因为 10÷2=5。", "tags": ["pytorch", "shape", "simulated"]}
+  ]
+}
